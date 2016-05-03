@@ -11,9 +11,9 @@ mysql_connect("$host", "$username", "$password")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
 // Get values from form 
-$name=$_POST['name'];
-$lastname=$_POST['lastname'];
-$email=$_POST['email'];
+$name		=	mysql_real_escape_string($_POST['name']);
+$lastname	=	mysql_real_escape_string($_POST['lastname']);
+$email		=	mysql_real_escape_string($_POST['email']);
 
 // Only post into the database if the forms were filled out
 if (!$name or !$lastname or !$email)
